@@ -13,6 +13,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    defaults:
+        run:
+          working-directory: moodMusicPlayer
     services:
       redis:
         image: redis:7
