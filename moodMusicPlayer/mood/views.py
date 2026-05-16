@@ -54,8 +54,6 @@ def home(request):
         print("played_track from view else",played_track)
     return render(request, "home.html",{ 'Artists':Artists, 'MostlyPlayed':MostPlayedSongs, 'PlayedTrack': played_track })
 
-# def test2(request):
-#     return render(request, "mood_result.html")
 
 # @login_required
 def bookmarked_song(request):
@@ -106,8 +104,6 @@ def track_played(request):
             # print("track id ",  track_id)
             print("TRACK RECEIVED track_played view:", data)
             # print(f"Track Played: ID={track_id}, Image={image_url}, Audio={audio_url}, Duration={duration}")
-
-            # if request.user.is_authenticated:
             try:
                 played_track = TrackPlayed.objects.create(
                         user = request.user,
@@ -134,10 +130,7 @@ def track_played(request):
                 'audio_url': audio_url,
                 'duration': duration,
             }
-            # request.session['now_playing_id'] = played_track.id
             request.session.save()
-
-            # request.session.save()
             return JsonResponse({'status': 'success'})
         except Exception as e:
             return JsonResponse({'status': 'error', 'message': str(e)}, status=400)

@@ -11,6 +11,7 @@
     <script src="{% static 'js/slider.js' %}"></script>
     <script src="{% static 'js/sidebar.js' %}"></script>
     <script src="{% static 'js/fetchMusic.js' %}"></script>
+    <script src="{% static 'js/controlBookmark.js' %}"></script>
     <script src="{% static 'js/controlPlay.js' %}"></script>
     <script src="{% static 'js/navbarControl.js' %}"></script>
     <script src="{% static 'js/searchMusicPlay.js' %}"></script>
@@ -140,7 +141,7 @@
                     <div class="playingMusicImage">
                              <Span>
                                 {% comment %} <i class="fa-solid fa-bookmark fa-xl id=bookmark"></i> {% endcomment %}
-                                <i class="fa-regular fa-bookmark fa-xl" id="bookmark" data-played-track="{{ PlayedTrack }}"
+                                <i class="fa-regular fa-bookmark fa-xl songBookmark" data-played-track="{{ PlayedTrack }}"
                                  data-played-track-id="{{ PlayedTrack.id }}"></i>
                             </Span>
                         <img src="{{PlayedTrack.image_url}}" alt="playingMusicImage" class="playing-image">
@@ -166,7 +167,7 @@
                     </div> 
                  {% else %}
                       <div class="playingMusicImage">
-                      <Span><i class="fa-regular fa-bookmark fa-xl" id="bookmark"></i></Span>
+                      <Span><i class="fa-regular fa-bookmark fa-xl" class="bookmark"></i></Span>
                         <img src="rockstar.jpg" alt="Rockstar" class="song-thumb" />
                             <div class="song-info">
                                 <h4>Rockstar</h4>

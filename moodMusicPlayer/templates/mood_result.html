@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{%static 'css/mood_result.css' %}">
     <script src="{% static 'js/searchMusicPlay.js' %}"></script>
     <script src="{% static 'js/sidebar.js' %}"></script>
+    <script src="{% static 'js/controlBookmark.js' %}"></script>
     <script src="{% static 'js/controlPlay.js' %}"></script>
 </head>
 {% block content %}    
@@ -88,7 +89,7 @@
                       <a href="{{ track.audiodownload }}" target="_blank">Download</a> |
                   </p> {% endcomment %}
                   <div class="musicBookmark">
-                   <Span><i class="fa-regular fa-bookmark fa-xl" id="bookmark"></i></Span>
+                   <Span><i class="fa-regular fa-bookmark fa-xl songBookmark" data-played-track-id="{{ track.id }}"></i></Span>
                   </div>
                 </div>
             </div>

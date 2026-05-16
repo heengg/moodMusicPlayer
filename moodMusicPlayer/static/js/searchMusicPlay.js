@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 var songSection = audio.closest('.song-section');
                 if (!songSection) {
     console.warn('No parent .song-section for audio:', audio);
-    return; // skip this audio
+    return;
 }
                 console.log(`song section from  searchMusicPlay.js :${songSection}`);
                 const imageSrc = songSection.querySelector('img').src;
@@ -56,6 +56,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
         
     })
+
+    document.querySelectorAll('.bookmark-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault(); // stop page reload
+
+            const trackId = this.dataset.trackId;
+            console.log('Bookmark response triggered');
+
+            fetch('/bookmarkTrack/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({
+                    track_id: trackId
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log('Bookmark response:', data);
+
+                // Optional UI change
+                // const icon = this.querySelector('i');
+                // icon.style.color = data.bookmarked ? '#1db954' : '#c0bfbf';
+            })
+            .catch(err => console.error(err));
+        });
+    });
+
 });
 
     function getCookie(name) {

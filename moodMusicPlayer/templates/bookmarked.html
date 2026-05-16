@@ -59,7 +59,7 @@
     </div>
 
     <div class="main">
-      <div class="top-section">recently played template</div>
+      <div class="top-section">bookmarked template</div>
 
       <div class="song-list-section">
         {% if recentTracks %}
@@ -81,9 +81,7 @@
                   {% comment %} <p>
                       <a href="{{ track.audiodownload }}" target="_blank">Download</a> |
                   </p> {% endcomment %}
-                  <a href="#" class="bookmark-btn" data-track-id="{{ track.id }}">
-                    <i class="fa-solid fa-bookmark" style="color: #c0bfbf;"></i>
-                  </a>
+                  <a href=""><i class="fa-solid fa-bookmark" style="color: #c0bfbf;"></i></a>
               </div>
             </div>
           {% endfor %}``
