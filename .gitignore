@@ -22,7 +22,8 @@ coverage/
 .vscode/
 .idea/
 .venv/
-
+Reference/
+package.md
 readme.txt
 fix.txt
 news
