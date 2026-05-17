@@ -1,0 +1,15 @@
+services:
+ redis:
+   image: redis:7
+ django-web:
+   build: .
+   container_name: django-docker
+   command: gunicorn moodMusicPlayer.wsgi:application --bind 0.0.0.0:8000
+   ports:
+     - "8000:8000"
+   depends_on:
+     - redis
+   env_file:
+     - ./moodMusicPlayer/.env
+   volumes:
+      - ./moodMusicPlayer/db.sqlite3:/app/db.sqlite3
