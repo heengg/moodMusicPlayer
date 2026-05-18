@@ -1,4 +1,7 @@
-name: Test
+name: Test .env
+ run: |
+    export $(cat .env | xargs)
+    python manage.py test
 
 on:
   push:
@@ -29,6 +32,7 @@ jobs:
 
     env:
       REDIS_URL: redis://localhost:6379/1
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
     strategy:
       max-parallel: 4
